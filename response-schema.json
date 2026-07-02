@@ -1,0 +1,73 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "overview": {
+      "type": "object",
+      "properties": {
+        "launch_year": { "type": "integer" },
+        "fragrance_family": { "type": "string" },
+        "concept": { "type": "string" }
+      },
+      "required": ["launch_year", "fragrance_family", "concept"]
+    },
+    "composition": {
+      "type": "object",
+      "properties": {
+        "top_notes": { "type": "array", "items": { "type": "string" } },
+        "heart_notes": { "type": "array", "items": { "type": "string" } },
+        "base_notes": { "type": "array", "items": { "type": "string" } }
+      },
+      "required": ["top_notes", "heart_notes", "base_notes"]
+    },
+    "performance": {
+      "type": "object",
+      "properties": {
+        "sillage": { "type": "string" },
+        "longevity": { "type": "string" }
+      },
+      "required": ["sillage", "longevity"]
+    },
+    "occasions": {
+      "type": "object",
+      "properties": {
+        "season": { "type": "string" },
+        "use": { "type": "string" }
+      },
+      "required": ["season", "use"]
+    },
+    "target_audience": {
+      "type": "object",
+      "properties": {
+        "gender": { "type": "string" },
+        "personality_fit": { "type": "string" }
+      },
+      "required": ["gender", "personality_fit"]
+    },
+    "reception": {
+      "type": "object",
+      "properties": {
+        "praise": { "type": "string" },
+        "criticism": { "type": "string" }
+      },
+      "required": ["praise", "criticism"]
+    },
+    "price_range": {
+      "type": "object",
+      "properties": {
+        "cost": { "type": "string" }
+      },
+      "required": ["cost"]
+    }
+  },
+  "required": [
+    "overview",
+    "composition",
+    "performance",
+    "occasions",
+    "target_audience",
+    "reception",
+    "price_range"
+  ]
+}
+

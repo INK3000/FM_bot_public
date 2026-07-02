@@ -1,0 +1,61 @@
+[project]
+name = "FM_bot"
+version = "0.1.0"
+description = "Federico Mahora's perfume bot https://shop-lt.fmworld.com"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "aiogram>=3.18.0",
+    "algoliasearch>=4.13.2",
+    "apscheduler-di>=0.1.0",
+    "apscheduler>=3.11.0",
+    "async-timeout>=5.0.1",
+    "asyncpg>=0.30.0",
+    "betterlogging>=1.0.0",
+    "environs>=14.1.1",
+    "gspread>=5.11.1",
+    "httpx>=0.28.1",
+    "msgspec>=0.19.0",
+    "pandas>=2.2.3",
+    "sentry-sdk>=2.22.0",
+    "sqlalchemy>=2.0.38",
+]
+
+
+[tool.uv]
+dev-dependencies = [
+    "basedpyright>=1.31.4",
+    "pipreqs>=0.5.0",
+    "pytest>=8.4.1",
+    "pytest-asyncio>=1.0.0",
+    "ruff>=0.12.2",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+pythonpath = ["."]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["E501"]
+
+[tool.basedpyright]
+include = ["bot", "tests"]
+venvPath = "."
+venv = ".venv"
+typeCheckingMode = "basic"
+reportUnusedCallResult = false
+reportPrivateLocalImportUsage = false
+reportUnknownMemberType = false
+reportMissingTypeStubs = false
+reportUnknownArgumentType = false
+reportUnknownLambdaType = false
+reportAny = false
+reportUnknownVariableType = false
+reportUnknownParameterType = false
+reportMissingParameterType = false

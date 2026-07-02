@@ -1,0 +1,5 @@
+algoliasearch==4.9.2
+betterlogging
+gspread
+pandas
+environs

@@ -1,0 +1,36 @@
+version: "3.9"
+
+services:
+  bot:
+    container_name: fm_bot
+    image: fm_bot
+    build:
+      context: ./bot
+      dockerfile: Dockerfile
+    volumes:
+      - ./bot:/app/bot
+    env_file:
+      - bot/app/.env
+    depends_on:
+      - postgres
+    networks:
+      - fm-network
+    command: "python3 -m bot"
+
+  postgres:
+    container_name: fm_db
+    image: docker.io/postgres:16
+    env_file:
+      - bot/app/.env
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./bot/app/migrations/001_initial.sql:/docker-entrypoint-initdb.d/01-initial.sql:ro
+    networks:
+      - fm-network
+
+volumes:
+  pgdata:
+
+networks:
+  fm-network:
+    external: true
